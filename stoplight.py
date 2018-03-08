@@ -45,7 +45,7 @@ def go(pins):
 	GPIO.output(pins[6], GPIO.LOW) # Turn off
 	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
-def cycle(pins)
+def cycle(pins):
 	reset(pins)
 	while True:
 		n = raw_input("type q to stop cycle")
