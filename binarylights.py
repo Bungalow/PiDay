@@ -14,8 +14,8 @@ for pin in pins:
 n = 0
 while True: # Run forever
 	binaryNumbers = UTILS.int2bin(n)
-	print(binaryNumbers)
 	values = UTILS.getBinaryOnArray(binaryNumbers)
+	print(values)
 	for index, pin in enumerate(pins):
 		ledOn = values[index]
 		if( ledOn ):
