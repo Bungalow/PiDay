@@ -40,7 +40,7 @@ def green(pins):
 	GPIO.output(pins[5], GPIO.HIGH) # Turn on
 
 def walkCycle(pins, currentCycle):
-	if currentCycle%1 == 0:
+	if currentCycle%2 == 0:
 		walk(pins, True)
 	else:
 		walk(pins, False)
