@@ -18,6 +18,8 @@ def red(pins, cycleYellow):
 	GPIO.output(pins[3], GPIO.LOW) # Turn off
 	GPIO.output(pins[4], GPIO.LOW) # Turn off
 	GPIO.output(pins[5], GPIO.LOW) # Turn off
+	GPIO.output(pins[6], GPIO.LOW) # Turn off
+	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
 def yellow(pins, yellowRed ):
 	GPIO.output(pins[0], GPIO.LOW) # Turn off
@@ -37,6 +39,12 @@ def green(pins):
 	GPIO.output(pins[4], GPIO.HIGH) # Turn on
 	GPIO.output(pins[5], GPIO.HIGH) # Turn on
 
+def walkCycle(pins, currentCyle):
+	if currentCycle%1 == 0:
+		walk(pins, True)
+	else:
+		walk(pins, False)
+
 def walk(pins, walkOn):
 	if walkOn:
 		GPIO.output(pins[6], GPIO.HIGH) # Turn on
@@ -50,12 +58,9 @@ def cycle(pins, cycles):
 	currentCycle = 0
 	while currentCycle < cycles:
 		print("Starting cycle "+ `currentCycle+1` + ".")
-		if currentCycle%1 == 0:
-			walk(pins, True)
-		else:
-			walk(pins, False)
 		red(pins, False)
 		sleep(10)
+		walkCycle(pins,currentCycle)
 		green(pins)
 		sleep(10)
 		red(pins, True)
