@@ -69,7 +69,7 @@ while True:
 	n = raw_input("Please enter 'green', 'yellow', 'red', or 'cycle':")
 	if n == 'red':
 		print('light changing to yellow then red')
-		red(pins, False)
+		red(pins, True)
 	elif n == 'green':
 		print('light changin to green')
 		green(pins)
