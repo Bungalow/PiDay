@@ -48,16 +48,12 @@ def green(pins):
 def cycle(pins):
 	reset(pins)
 	while True:
-		n = raw_input("type q to stop cycle")
 		red(pins, False)
 		sleep(10)
 		green(pins)
 		sleep(10)
 		red(pins, True)
 		sleep(10)
-		if n == 'q':
-			reset(pins)
-			break
 
 pins = [16,18,22,32,36,31,33,37]
 
