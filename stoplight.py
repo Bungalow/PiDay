@@ -11,7 +11,7 @@ def reset(pins):
 	GPIO.output(pins[6], GPIO.LOW) # Turn off
 	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
-def stop(pins, yellow):
+def red(pins, yellow):
 	if( yellow ):
 		yellow(pins, True);
 	GPIO.output(pins[0], GPIO.HIGH) # Turn on
@@ -35,7 +35,7 @@ def yellow(pins, yellowRed ):
 	if yellowRed:
 		sleep(5)
 
-def go(pins):
+def green(pins):
 	GPIO.output(pins[0], GPIO.LOW) # Turn off
 	GPIO.output(pins[1], GPIO.LOW) # Turn off
 	GPIO.output(pins[2], GPIO.LOW) # Turn off
@@ -71,13 +71,13 @@ while True:
 	n = raw_input("Please enter 'green', 'yellow', 'red', or 'cycle':")
 	if n == 'red':
 		print('light changing to yellow then red')
-		stop(pins)
+		red(pins)
 	elif n == 'green':
 		print('light changin to green')
-		go(pins)
+		green(pins)
 	elif n == 'yello':
 		print('light changin to yellow')
-		yello(pins, False)
+		yellow(pins, False)
 	elif 'cycle':
 		cycle(pins)
 	elif n == 'q' or n == 'exit':
