@@ -16,7 +16,7 @@ while True: # Run forever
 	binaryNumbers = int2bin(n)
 	print(binaryNumbers)
 	values = getBinaryOnArray(binaryNumbers)
-	for index, pin in enumarate(pins)
+	for index, pin in enumarate(pins):
 		ledOn = values[index]
 		if( ledOn ):
 			GPIO.output(pin, GPIO.HIGH) # Turn on
