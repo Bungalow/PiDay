@@ -1,3 +1,4 @@
+import array
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import UTILS as UTILS
 from time import sleep # Import the sleep function from the time module
@@ -12,11 +13,14 @@ for pin in pins:
 
 n = 0
 while True: # Run forever
-	binaryNumbers = UTILS.int2bin(n)
+	binaryNumbers = int2bin(n)
+	print(binaryNumbers)
 	for index, pin in enumerate(pins):
-		if UTILS.isOn(index):
-			GPIO.output(pin, GPIO.HIGH) # Turn on
-		else:
+		if index < len(binaryNumbers):
+			if UTILS.isOn(binaryNumbers[index]):
+				GPIO.output(pin, GPIO.HIGH) # Turn on
+			else:
+				GPIO.output(pin, GPIO.LOW) # Turn on
+		else :
 			GPIO.output(pin, GPIO.LOW) # Turn on
 	n += 1
-	sleep(1) # Sleep for 1 second
