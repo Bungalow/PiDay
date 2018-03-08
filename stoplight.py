@@ -8,8 +8,6 @@ def reset(pins):
 	GPIO.output(pins[3], GPIO.LOW) # Turn off
 	GPIO.output(pins[4], GPIO.LOW) # Turn off
 	GPIO.output(pins[5], GPIO.LOW) # Turn off
-	GPIO.output(pins[6], GPIO.LOW) # Turn off
-	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
 def red(pins, cycleYellow):
 	if cycleYellow:
@@ -20,8 +18,6 @@ def red(pins, cycleYellow):
 	GPIO.output(pins[3], GPIO.LOW) # Turn off
 	GPIO.output(pins[4], GPIO.LOW) # Turn off
 	GPIO.output(pins[5], GPIO.LOW) # Turn off
-	GPIO.output(pins[6], GPIO.LOW) # Turn off
-	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
 def yellow(pins, yellowRed ):
 	GPIO.output(pins[0], GPIO.LOW) # Turn off
@@ -30,8 +26,6 @@ def yellow(pins, yellowRed ):
 	GPIO.output(pins[3], GPIO.HIGH) # Turn on
 	GPIO.output(pins[4], GPIO.LOW) # Turn off
 	GPIO.output(pins[5], GPIO.LOW) # Turn off
-	GPIO.output(pins[6], GPIO.LOW) # Turn off
-	GPIO.output(pins[7], GPIO.LOW) # Turn off
 	if yellowRed:
 		sleep(5)
 
@@ -42,14 +36,24 @@ def green(pins):
 	GPIO.output(pins[3], GPIO.LOW) # Turn on
 	GPIO.output(pins[4], GPIO.HIGH) # Turn on
 	GPIO.output(pins[5], GPIO.HIGH) # Turn on
-	GPIO.output(pins[6], GPIO.LOW) # Turn off
-	GPIO.output(pins[7], GPIO.LOW) # Turn off
+
+def walk(pins, walkOn):
+	if walkOn:
+		GPIO.output(pins[6], GPIO.HIGH) # Turn on
+		GPIO.output(pins[7], GPIO.HIGH) # Turn on
+	else:
+		GPIO.output(pins[6], GPIO.LOW) # Turn off
+		GPIO.output(pins[7], GPIO.LOW) # Turn off
 
 def cycle(pins, cycles):
 	reset(pins)
 	currentCycle = 0
 	while currentCycle < cycles:
 		print("Starting cycle "+ `currentCycle+1` + ".")
+		if currentCycle%1 == 0:
+			walk(pins, True)
+		else:
+			walk(pins, False)
 		red(pins, False)
 		sleep(10)
 		green(pins)
@@ -83,7 +87,7 @@ while True:
 		yellow(pins, False)
 	elif 'cycle':
 		print('running cycle twice')
-		input = raw_input("How many times?")
+		input = int(input("How many times?"))
 		cycle(pins, input)
 	elif n == 'q' or n == 'exit':
 		reset(pins)
