@@ -58,15 +58,19 @@ def cycle(pins, cycles):
 	currentCycle = 0
 	while currentCycle < cycles:
 		print("Starting cycle "+ `currentCycle+1` + ".")
+		print("Red Light")
 		red(pins, False)
 		sleep(10)
+		print("Green Light and possible walk")
 		walkCycle(pins,currentCycle)
 		green(pins)
 		sleep(10)
+		print("Light Changing")
 		red(pins, True)
 		sleep(10)
 		print("Cycle "+ `currentCycle+1` + "has ended.")
 		currentCycle += 1
+	return
 
 pins = [16,18,22,32,36,31,33,37]
 
@@ -91,9 +95,9 @@ while True:
 		print('light changin to yellow')
 		yellow(pins, False)
 	elif 'cycle':
-		print('running cycle twice')
-		input = int(input("How many times?"))
-		cycle(pins, input)
+		i = int(input("How many times?"))
+		print("Running cycle" + `i` + "times(s)")
+		cycle(pins, i)
 	elif n == 'q' or n == 'exit':
 		reset(pins)
 		exit()
