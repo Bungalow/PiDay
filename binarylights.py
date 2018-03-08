@@ -24,3 +24,4 @@ while True: # Run forever
 		else :
 			GPIO.output(pin, GPIO.LOW) # Turn on
 	n += 1
+	sleep(1)
