@@ -67,7 +67,6 @@ def cycle(pins, cycles):
 		sleep(10)
 		print("Light Changing")
 		red(pins, True)
-		sleep(10)
 		print("Cycle "+ `currentCycle+1` + "has ended.")
 		currentCycle += 1
 	return
