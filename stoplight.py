@@ -72,7 +72,7 @@ def cycle(pins, cycles):
 		if( cycles != 1 ){
 			sleep(cycleTransitionTime)
 		}
-		print("Cycle "+ `currentCycle+1` + "has ended.")
+		print("Cycle "+ `currentCycle+1` + " has ended.")
 		currentCycle += 1
 
 pins = [16,18,22,32,36,31,33,37]
@@ -84,7 +84,7 @@ for pin in pins:
 	GPIO.setup(pin, GPIO.OUT, initial=GPIO.LOW)
 
 while True:
-	n = raw_input("Please enter 'green', 'yellow', 'red', 'redYellow' or 'cycle':")
+	n = raw_input("Please enter 'green', 'yellow', 'red', 'redYellow' or 'cycle': ")
 	if n == 'red':
 		print('light changing to red')
 		red(pins, False)
@@ -98,8 +98,8 @@ while True:
 		print('light changin to yellow')
 		yellow(pins, False)
 	elif n == 'cycle':
-		i = int(input("How many times?"))
-		print("Running cycle" + `i` + "times(s)")
+		i = int(input("How many times? "))
+		print("Running cycle" + `i` + " times(s)")
 		cycle(pins, i)
 	elif n == 'q' or n == 'exit':
 		reset(pins)
