@@ -45,15 +45,17 @@ def green(pins):
 	GPIO.output(pins[6], GPIO.LOW) # Turn off
 	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
-def cycle(pins):
+def cycle(pins, cycles):
 	reset(pins)
-	while True:
+	currentCycle = 0
+	while currentCycle < cycles:
 		red(pins, False)
 		sleep(10)
 		green(pins)
 		sleep(10)
 		red(pins, True)
 		sleep(10)
+		currentCyles += 1
 
 pins = [16,18,22,32,36,31,33,37]
 
@@ -75,7 +77,7 @@ while True:
 		print('light changin to yellow')
 		yellow(pins, False)
 	elif 'cycle':
-		cycle(pins)
+		cycle(pins, 2)
 	elif n == 'q' or n == 'exit':
 		reset(pins)
 		exit()
