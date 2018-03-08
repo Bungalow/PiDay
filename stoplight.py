@@ -49,14 +49,14 @@ def cycle(pins, cycles):
 	reset(pins)
 	currentCycle = 0
 	while currentCycle < cycles:
-		print("Starting cycle "+ (currentCycle+1) + ".")
+		print("Starting cycle "+ `currentCycle+1` + ".")
 		red(pins, False)
 		sleep(10)
 		green(pins)
 		sleep(10)
 		red(pins, True)
 		sleep(10)
-		print("Cycle "+ (currentCycle+1) + "has ended.")
+		print("Cycle "+ `currentCycle+1` + "has ended.")
 		currentCyles += 1
 
 pins = [16,18,22,32,36,31,33,37]
