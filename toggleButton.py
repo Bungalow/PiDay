@@ -10,9 +10,4 @@ GPIO.setup(13,GPIO.OUT, initial=GPIO.LOW)
 ledOn = False
 
 while True:
-	if GPIO.input(11) == False:
-		ledOn =  not ledOn
-	if ledOn: 
-		GPIO.output(13,GPIO.HIGH)
-	else : 
-		GPIO.output(13,GPIO.LOW)
+	print(GPIO.input(11))
