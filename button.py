@@ -5,7 +5,7 @@ GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 
 GPIO.setup(17,GPIO.IN)
-GPIO.setup(27.GPIO.OUT)
+GPIO.setup(27,GPIO.OUT)
 
 while True:
 	if GPIO.input(17) == False:
