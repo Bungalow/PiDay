@@ -11,8 +11,9 @@ def reset(pins):
 	GPIO.output(pins[6], GPIO.LOW) # Turn off
 	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
-def stop(pins):
-	yellow(pins);
+def stop(pins, yellow):
+	if( yellow ):
+		yellow(pins, True);
 	GPIO.output(pins[0], GPIO.HIGH) # Turn on
 	GPIO.output(pins[1], GPIO.HIGH) # Turn on
 	GPIO.output(pins[2], GPIO.LOW) # Turn off
@@ -22,7 +23,7 @@ def stop(pins):
 	GPIO.output(pins[6], GPIO.LOW) # Turn off
 	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
-def yellow(pins):
+def yellow(pins, yellowRed ):
 	GPIO.output(pins[0], GPIO.LOW) # Turn off
 	GPIO.output(pins[1], GPIO.LOW) # Turn off
 	GPIO.output(pins[2], GPIO.HIGH) # Turn on
@@ -31,7 +32,8 @@ def yellow(pins):
 	GPIO.output(pins[5], GPIO.LOW) # Turn off
 	GPIO.output(pins[6], GPIO.LOW) # Turn off
 	GPIO.output(pins[7], GPIO.LOW) # Turn off
-	sleep(5)
+	if yellowRed:
+		sleep(5)
 
 def go(pins):
 	GPIO.output(pins[0], GPIO.LOW) # Turn off
@@ -43,15 +45,19 @@ def go(pins):
 	GPIO.output(pins[6], GPIO.LOW) # Turn off
 	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
-def walk(pins):
-	GPIO.output(pins[0], GPIO.LOW) # Turn off
-	GPIO.output(pins[1], GPIO.LOW) # Turn off
-	GPIO.output(pins[2], GPIO.LOW) # Turn off
-	GPIO.output(pins[3], GPIO.LOW) # Turn off
-	GPIO.output(pins[4], GPIO.LOW) # Turn off
-	GPIO.output(pins[5], GPIO.LOW) # Turn off
-	GPIO.output(pins[6], GPIO.HIGH) # Turn ON
-	GPIO.output(pins[7], GPIO.HIGH) # Turn ON
+def cycle(pins)
+	reset(pins)
+	while True:
+		n = raw_input("type q to stop cycle")
+		red(pins, False)
+		sleep(10)
+		green(pins)
+		sleep(10)
+		red(pins, True)
+		sleep(10)
+		if n == 'q':
+			reset(pins)
+			break
 
 pins = [16,18,22,32,36,31,33,37]
 
@@ -62,16 +68,18 @@ for pin in pins:
 	GPIO.setup(pin, GPIO.OUT, initial=GPIO.LOW)
 
 while True:
-	n = raw_input("Please enter 'hello':")
-	if n == 'stop':
+	n = raw_input("Please enter 'green', 'yellow', 'red', or 'cycle':")
+	if n == 'red':
 		print('light changing to yellow then red')
 		stop(pins)
-	elif n == 'go':
+	elif n == 'green':
 		print('light changin to green')
 		go(pins)
-	elif n == 'walk':
-		print('light changin to walk')
-		walk(pins)
+	elif n == 'yello':
+		print('light changin to yellow')
+		yello(pins, False)
+	elif 'cycle':
+		cycle(pins)
 	elif n == 'q' or n == 'exit':
 		reset(pins)
 		exit()
