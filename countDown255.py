@@ -11,7 +11,7 @@ GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 for pin in pins:
 	GPIO.setup(pin, GPIO.OUT, initial=GPIO.LOW)
 
-n = 0
+n = 255
 while True: # Run forever
 	binaryNumbers = UTILS.int2bin(n)
 	values = UTILS.getBinaryOnArray(binaryNumbers)
@@ -21,7 +21,7 @@ while True: # Run forever
 			GPIO.output(pin, GPIO.HIGH) # Turn on
 		else:
 			GPIO.output(pin, GPIO.LOW) # Turn off
-	n += 1
-	if( n >= 256 ):
-		n = 0
+	n -= 1
+	if( n < 0 ):
+		n = 255
 	sleep(1)
