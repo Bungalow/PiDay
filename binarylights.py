@@ -13,15 +13,16 @@ for pin in pins:
 
 n = 0
 while True: # Run forever
-	binaryNumbers = UTILS.int2bin(n)
+	binaryNumbers = int2bin(n)
 	print(binaryNumbers)
-	for index, pin in enumerate(pins):
-		if index < len(binaryNumbers):
-			if UTILS.isOn(binaryNumbers[index]):
-				GPIO.output(pin, GPIO.HIGH) # Turn on
-			else:
-				GPIO.output(pin, GPIO.LOW) # Turn on
-		else :
-			GPIO.output(pin, GPIO.LOW) # Turn on
+	values = getBinaryOnArray(binaryNumbers)
+	for index, pin in enumarate(pins)
+		ledOn = values[index]
+		if( ledOn ):
+			GPIO.output(pin, GPIO.HIGH) # Turn on
+		else:
+			GPIO.output(pin, GPIO.LOW) # Turn off
 	n += 1
+	if( n >= 256 ):
+		n = 0
 	sleep(1)

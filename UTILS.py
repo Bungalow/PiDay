@@ -9,5 +9,11 @@ def int2bin(i):
 def isOn(val):
 	return val == '1'
 
+def getBinaryOnArray(bins):
+	valueArray = [];
+	for index, bin in enumerate(bins):
+		valueArray.insert(index, isOn(bin))
+	return valueArray
+
 if __name__ == '__main__':
 	UTILS()
