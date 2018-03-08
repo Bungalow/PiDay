@@ -61,7 +61,7 @@ while True:
 		go(pins)
 	elif n == 'walk':
 		print('light changin to walk')
-		wlak(pins)
+		walk(pins)
 	elif n == 'q' or n == 'exit':
 		exit()
 	else:
