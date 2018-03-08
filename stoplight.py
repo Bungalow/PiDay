@@ -100,6 +100,7 @@ while True:
 		i = int(input("How many times? "))
 		print("Running cycle" + `i` + " times(s)")
 		cycle(pins, i)
+		sleep(2)
 		reset(pins)
 	elif n == 'q' or n == 'exit':
 		reset(pins)
