@@ -53,6 +53,8 @@ def walk(pins, walkOn):
 		GPIO.output(pins[6], GPIO.LOW) # Turn off
 		GPIO.output(pins[7], GPIO.LOW) # Turn off
 
+cycleTransitionTime = 2
+
 def cycle(pins, cycles):
 	reset(pins)
 	currentCycle = 0
@@ -60,16 +62,18 @@ def cycle(pins, cycles):
 		print("Starting cycle "+ `currentCycle+1` + ".")
 		print("Red Light")
 		red(pins, False)
-		sleep(10)
+		sleep(cycleTransitionTime)
 		print("Green Light and possible walk")
 		walkCycle(pins,currentCycle)
 		green(pins)
-		sleep(10)
+		sleep(cycleTransitionTime)
 		print("Light Changing")
 		red(pins, True)
+		if( cycles != 1 ){
+			sleep(cycleTransitionTime)
+		}
 		print("Cycle "+ `currentCycle+1` + "has ended.")
 		currentCycle += 1
-	return
 
 pins = [16,18,22,32,36,31,33,37]
 
