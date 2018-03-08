@@ -57,7 +57,7 @@ def cycle(pins, cycles):
 		red(pins, True)
 		sleep(10)
 		print("Cycle "+ `currentCycle+1` + "has ended.")
-		currentCyles += 1
+		currentCycle += 1
 
 pins = [16,18,22,32,36,31,33,37]
 
@@ -83,7 +83,8 @@ while True:
 		yellow(pins, False)
 	elif 'cycle':
 		print('running cycle twice')
-		cycle(pins, 2)
+		input = raw_input("How many times?")
+		cycle(pins, input)
 	elif n == 'q' or n == 'exit':
 		reset(pins)
 		exit()
