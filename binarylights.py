@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
+import UTILS as UTILS
 from time import sleep # Import the sleep function from the time module
 
 def int2bin(i):
