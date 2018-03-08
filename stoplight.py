@@ -75,7 +75,7 @@ while True:
 	elif n == 'green':
 		print('light changin to green')
 		green(pins)
-	elif n == 'yello':
+	elif n == 'yellow':
 		print('light changin to yellow')
 		yellow(pins, False)
 	elif 'cycle':
