@@ -11,3 +11,11 @@ ledOn = False
 
 while True:
 	print(GPIO.input(11))
+	pressed = PGIO.input(11)
+	if pressed:
+		ledOn = not ledOn
+
+	if ledOn: 
+		GPIO.output(13, GPIO.HIGH)
+	else:
+		GPIO.output(13, GPIO.LOW)
