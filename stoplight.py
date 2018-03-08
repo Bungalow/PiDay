@@ -11,8 +11,8 @@ def reset(pins):
 	GPIO.output(pins[6], GPIO.LOW) # Turn off
 	GPIO.output(pins[7], GPIO.LOW) # Turn off
 
-def red(pins, yellow):
-	if( yellow ):
+def red(pins, cycleYellow):
+	if cycleYellow:
 		yellow(pins, True);
 	GPIO.output(pins[0], GPIO.HIGH) # Turn on
 	GPIO.output(pins[1], GPIO.HIGH) # Turn on
