@@ -1,3 +1,5 @@
+import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
+
 pins = [16,18,22,32,36,31,33,37]
 
 GPIO.setwarnings(False) # Ignore warning for now
