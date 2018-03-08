@@ -66,8 +66,11 @@ for pin in pins:
 	GPIO.setup(pin, GPIO.OUT, initial=GPIO.LOW)
 
 while True:
-	n = raw_input("Please enter 'green', 'yellow', 'red', or 'cycle':")
+	n = raw_input("Please enter 'green', 'yellow', 'red', 'redYellow' or 'cycle':")
 	if n == 'red':
+		print('light changing to red')
+		red(pins, False)
+	elif n == 'redYellow':
 		print('light changing to yellow then red')
 		red(pins, True)
 	elif n == 'green':
@@ -77,6 +80,7 @@ while True:
 		print('light changin to yellow')
 		yellow(pins, False)
 	elif 'cycle':
+		print('running cycle twice')
 		cycle(pins, 2)
 	elif n == 'q' or n == 'exit':
 		reset(pins)
