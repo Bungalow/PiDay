@@ -1,6 +1,16 @@
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 from time import sleep # Import the sleep function from the time module
 
+def reset(pins):
+	GPIO.output(pins[0], GPIO.LOW) # Turn off
+	GPIO.output(pins[1], GPIO.LOW) # Turn off
+	GPIO.output(pins[2], GPIO.LOW) # Turn off
+	GPIO.output(pins[3], GPIO.LOW) # Turn off
+	GPIO.output(pins[4], GPIO.LOW) # Turn off
+	GPIO.output(pins[5], GPIO.LOW) # Turn off
+	GPIO.output(pins[6], GPIO.LOW) # Turn off
+	GPIO.output(pins[7], GPIO.LOW) # Turn off
+
 def stop(pins):
 	yellow(pins);
 	GPIO.output(pins[0], GPIO.HIGH) # Turn on
@@ -37,11 +47,11 @@ def walk(pins):
 	GPIO.output(pins[0], GPIO.LOW) # Turn off
 	GPIO.output(pins[1], GPIO.LOW) # Turn off
 	GPIO.output(pins[2], GPIO.LOW) # Turn off
-	GPIO.output(pins[3], GPIO.LOW) # Turn on
-	GPIO.output(pins[4], GPIO.LOW) # Turn on
-	GPIO.output(pins[5], GPIO.LOW) # Turn on
-	GPIO.output(pins[6], GPIO.HIGH) # Turn off
-	GPIO.output(pins[7], GPIO.HIGH) # Turn off
+	GPIO.output(pins[3], GPIO.LOW) # Turn off
+	GPIO.output(pins[4], GPIO.LOW) # Turn off
+	GPIO.output(pins[5], GPIO.LOW) # Turn off
+	GPIO.output(pins[6], GPIO.HIGH) # Turn ON
+	GPIO.output(pins[7], GPIO.HIGH) # Turn ON
 
 pins = [16,18,22,32,36,31,33,37]
 
@@ -63,6 +73,7 @@ while True:
 		print('light changin to walk')
 		walk(pins)
 	elif n == 'q' or n == 'exit':
+		reset(pins)
 		exit()
 	else:
 		print('invalid command')
