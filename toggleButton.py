@@ -11,7 +11,7 @@ ledOn = False
 
 while True:
 	if GPIO.input(11) == False:
-		ledOn = !ledOn
+		ledOn =  not ledOn
 	if ledOn: 
 		GPIO.output(13,GPIO.HIGH)
 	else : 
