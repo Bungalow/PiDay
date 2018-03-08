@@ -5,7 +5,7 @@ GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
 
 GPIO.setup(11,GPIO.IN)
-GPIO.setup(13,GPIO.OUT)
+GPIO.setup(13,GPIO.OUT, initial=GPIO.LOW)
 
 ledOn = False
 
