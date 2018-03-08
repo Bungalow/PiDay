@@ -17,5 +17,7 @@ while True: # Run forever
 
 	for pin in pins:
 		GPIO.output(pin, GPIO.LOW) # Turn off
-		
+
 	sleep(1) # Sleep for 1 second
+
+GPIO.cleanup()

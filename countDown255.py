@@ -25,3 +25,5 @@ while True: # Run forever
 	if( n < 0 ):
 		n = 255
 	sleep(1)
+
+GPIO.cleanup()
