@@ -93,7 +93,7 @@ while True:
 	elif n == 'yellow':
 		print('light changin to yellow')
 		yellow(pins, False)
-	elif 'cycle':
+	elif n == 'cycle':
 		i = int(input("How many times?"))
 		print("Running cycle" + `i` + "times(s)")
 		cycle(pins, i)
