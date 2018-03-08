@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 from time import sleep # Import the sleep function from the time module
 
+cycleTransitionTime = 2
+
 def reset(pins):
 	GPIO.output(pins[0], GPIO.LOW) # Turn off
 	GPIO.output(pins[1], GPIO.LOW) # Turn off
@@ -29,7 +31,7 @@ def yellow(pins, yellowRed ):
 	GPIO.output(pins[4], GPIO.LOW) # Turn off
 	GPIO.output(pins[5], GPIO.LOW) # Turn off
 	if yellowRed:
-		sleep(5)
+		sleep(cycleTransitionTime)
 
 def green(pins):
 	GPIO.output(pins[0], GPIO.LOW) # Turn off
@@ -52,8 +54,6 @@ def walk(pins, walkOn):
 	else:
 		GPIO.output(pins[6], GPIO.LOW) # Turn off
 		GPIO.output(pins[7], GPIO.LOW) # Turn off
-
-cycleTransitionTime = 2
 
 def cycle(pins, cycles):
 	reset(pins)
