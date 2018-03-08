@@ -8,14 +8,14 @@ GPIO.setup(11,GPIO.IN)
 GPIO.setup(13, GPIO.OUT, initial=GPIO.LOW)
 GPIO.output(13, GPIO.LOW)
 
-ledOn = False
+state = True
 
 while True:
 	pressed = GPIO.input(11)
 	if pressed == GPIO.HIGH:
-		ledOn = not ledOn
+		state = not state
 		sleep(.2)
-	if ledOn: 
+	if state: 
 		GPIO.output(13, GPIO.HIGH)
 	else:
 		GPIO.output(13, GPIO.LOW)
