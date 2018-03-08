@@ -14,9 +14,9 @@ while True:
 	pressed = GPIO.input(11)
 	if pressed == GPIO.HIGH:
 		ledOn = not ledOn
-		sleep(.25)
-
+		sleep(.2)
 	if ledOn: 
 		GPIO.output(13, GPIO.HIGH)
 	else:
 		GPIO.output(13, GPIO.LOW)
+	sleep(.1)
