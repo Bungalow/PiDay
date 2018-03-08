@@ -13,7 +13,7 @@ for pin in pins:
 
 n = 0
 while True: # Run forever
-	binaryNumbers = int2bin(n)
+	binaryNumbers = UTILS.int2bin(n)
 	print(binaryNumbers)
 	for index, pin in enumerate(pins):
 		if index < len(binaryNumbers):
