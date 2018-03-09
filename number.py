@@ -12,6 +12,87 @@ def zero():
 	GPIO.output(G, GPIO.LOW) # Turn off
 	GPIO.output(B, GPIO.HIGH) # Turn on
 
+def one():
+	GPIO.output(A, GPIO.LOW) # Turn off
+	GPIO.output(F, GPIO.HIGH) # Turn on
+	GPIO.output(E, GPIO.HIGH) # Turn on
+	GPIO.output(D, GPIO.LOW) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.LOW) # Turn off
+	GPIO.output(B, GPIO.LOW) # Turn on
+
+def two():
+	GPIO.output(A, GPIO.HIGH) # Turn off
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.HIGH) # Turn off
+	GPIO.output(D, GPIO.HIGH) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.HIGH) # Turn off
+	GPIO.output(B, GPIO.HIGH) # Turn off
+
+def three():
+	GPIO.output(A, GPIO.LOW) # Turn off
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.LOW) # Turn off
+	GPIO.output(D, GPIO.LOW) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.LOW) # Turn off
+	GPIO.output(B, GPIO.LOW) # Turn off
+
+def four():
+	GPIO.output(A, GPIO.LOW) # Turn off
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.LOW) # Turn off
+	GPIO.output(D, GPIO.LOW) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.LOW) # Turn off
+	GPIO.output(B, GPIO.LOW) # Turn off
+
+def five():
+	GPIO.output(A, GPIO.LOW) # Turn off
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.LOW) # Turn off
+	GPIO.output(D, GPIO.LOW) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.LOW) # Turn off
+	GPIO.output(B, GPIO.LOW) # Turn off
+
+def six():
+	GPIO.output(A, GPIO.LOW) # Turn off
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.LOW) # Turn off
+	GPIO.output(D, GPIO.LOW) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.LOW) # Turn off
+	GPIO.output(B, GPIO.LOW) # Turn off
+
+def seven():
+	GPIO.output(A, GPIO.LOW) # Turn off
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.LOW) # Turn off
+	GPIO.output(D, GPIO.LOW) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.LOW) # Turn off
+	GPIO.output(B, GPIO.LOW) # Turn off
+
+def eight():
+	GPIO.output(A, GPIO.LOW) # Turn off
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.LOW) # Turn off
+	GPIO.output(D, GPIO.LOW) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.LOW) # Turn off
+	GPIO.output(B, GPIO.LOW) # Turn off
+
+def nine():
+	GPIO.output(A, GPIO.LOW) # Turn off
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.LOW) # Turn off
+	GPIO.output(D, GPIO.LOW) # Turn off
+	GPIO.output(C, GPIO.LOW) # Turn off
+	GPIO.output(G, GPIO.LOW) # Turn off
+	GPIO.output(B, GPIO.LOW) # Turn off
+
 A = 16
 F = 18
 E = 22
@@ -33,3 +114,6 @@ GPIO.setup(B, GPIO.OUT, initial=GPIO.LOW)
 
 while True:
 	zero()
+	sleep(1)
+	one()
+	sleep(1)
