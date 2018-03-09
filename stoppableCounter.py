@@ -39,6 +39,5 @@ while True: # Run forever
 		n += 1
 		if( n >= 256 ):
 			n = 0
-		return n
 	sleep(1)
 GPIO.cleanup()
