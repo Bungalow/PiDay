@@ -7,6 +7,7 @@ pins = [16,18,22,32,36,31,33,37]
 buttonPin = 11
 buttonLEDPin = 13
 direction = "UP"
+buttonToggleState = True
 
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering
@@ -31,14 +32,14 @@ while True: # Run forever
 
 	pressed = GPIO.input(11)
 	if pressed == GPIO.HIGH:
-		state = not state
+		buttonToggleState = not buttonToggleState
 		sleep(.1)
 	if state: 
 		GPIO.output(13, GPIO.HIGH)
-		direction == "DOWN"
+		direction == "UP"
 	else:
 		GPIO.output(13, GPIO.LOW)
-		direction == "UP"
+		direction == "DOWN"
 
 	if direction == "UP":
 		n += 1
