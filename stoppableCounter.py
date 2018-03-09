@@ -19,6 +19,7 @@ GPIO.output(buttonLEDPin, GPIO.LOW)
 
 n = 0
 while True: # Run forever
+	# watch for button press to stop the clock
 	pressed = GPIO.input(buttonPin)
 	if pressed == GPIO.HIGH:
 		buttonToggleState = not buttonToggleState
@@ -27,6 +28,7 @@ while True: # Run forever
 		GPIO.output(buttonLEDPin, GPIO.HIGH)
 	else:
 		GPIO.output(buttonLEDPin, GPIO.LOW)
+	# count up to 255
 	if buttonToggleState:
 		binaryNumbers = UTILS.int2bin(n)
 		values = UTILS.getBinaryOnArray(binaryNumbers)
@@ -39,5 +41,6 @@ while True: # Run forever
 		n += 1
 		if( n >= 256 ):
 			n = 0
-	sleep(1)
+		# count by the second
+		sleep(1)
 GPIO.cleanup()
