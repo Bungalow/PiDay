@@ -3,26 +3,16 @@ import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import UTILS as UTILS
 from time import sleep # Import the sleep function from the time module
 
-def pins = [16,18,22,32,36,31,33,37]
-def buttonPin = 11
-def buttonLEDPin = 13
-def buttonToggleState = True
+pins = [16,18,22,32,36,31,33,37]
+buttonPin = 11
+buttonLEDPin = 13
+buttonToggleState = True
 
 def incrementBinaryCounter(n):
 	n += 1
 	if( n >= 256 ):
 		n = 0
 	return n
-
-def checkForButtonPress():
-	pressed = GPIO.input(buttonPin)
-	if pressed == GPIO.HIGH:
-		buttonToggleState = not buttonToggleState
-		sleep(.1)
-	if buttonToggleState: 
-		GPIO.output(buttonLEDPin, GPIO.HIGH)
-	else:
-		GPIO.output(buttonLEDPin, GPIO.LOW)
 
 def setup():
 	GPIO.setwarnings(False) # Ignore warning for now
@@ -37,7 +27,15 @@ def setup():
 def main():
 	n = 0
 	while True: # Run forever
-		checkForButtonPress()
+		pressed = GPIO.input(buttonPin)
+		if pressed == GPIO.HIGH:
+			buttonToggleState = not buttonToggleState
+			sleep(.1)
+		if buttonToggleState: 
+			GPIO.output(buttonLEDPin, GPIO.HIGH)
+		else:
+			GPIO.output(buttonLEDPin, GPIO.LOW)
+
 		if buttonToggleState:
 			binaryNumbers = UTILS.int2bin(n)
 			values = UTILS.getBinaryOnArray(binaryNumbers)
@@ -49,6 +47,9 @@ def main():
 					GPIO.output(pin, GPIO.LOW) # Turn off
 			n = incrementBinaryCounter(n);
 			sleep(1)
+
+
+
 
 setup()
 main()
