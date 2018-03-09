@@ -19,4 +19,4 @@ while True:
 		GPIO.output(13, GPIO.HIGH)
 	else:
 		GPIO.output(13, GPIO.LOW)
-	sleep(.1)
+	sleep(.2)
