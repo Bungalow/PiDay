@@ -3,15 +3,14 @@ import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 import UTILS as UTILS
 from time import sleep # Import the sleep function from the time module
 
-def zero(pins){
-	GPIO.output(A, GPIO.LOW) # Turn off
-	GPIO.output(F, GPIO.LOW) # Turn off
-	GPIO.output(E, GPIO.LOW) # Turn off
-	GPIO.output(D, GPIO.LOW) # Turn off
-	GPIO.output(C, GPIO.LOW) # Turn off
+def zero(pins):
+	GPIO.output(A, GPIO.LOW) # Turn on
+	GPIO.output(F, GPIO.LOW) # Turn on
+	GPIO.output(E, GPIO.LOW) # Turn on
+	GPIO.output(D, GPIO.LOW) # Turn on
+	GPIO.output(C, GPIO.LOW) # Turn on
 	GPIO.output(G, GPIO.HIGH) # Turn off
-	GPIO.output(B, GPIO.LOW) # Turn off
-}
+	GPIO.output(B, GPIO.LOW) # Turn on
 
 A = 16
 F = 18
