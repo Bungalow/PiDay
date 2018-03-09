@@ -14,9 +14,9 @@ while True:
 	pressed = GPIO.input(11)
 	if pressed == GPIO.HIGH:
 		state = not state
-		sleep(.2)
+		sleep(.1)
 	if state: 
 		GPIO.output(13, GPIO.HIGH)
 	else:
 		GPIO.output(13, GPIO.LOW)
-	sleep(.2)
+	sleep(.1)
