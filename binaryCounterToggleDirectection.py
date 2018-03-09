@@ -34,7 +34,7 @@ while True: # Run forever
 	if pressed == GPIO.HIGH:
 		buttonToggleState = not buttonToggleState
 		sleep(.1)
-	if state: 
+	if buttonToggleState: 
 		GPIO.output(13, GPIO.HIGH)
 		direction == "UP"
 	else:
