@@ -107,3 +107,5 @@ while True:
 		exit()
 	else:
 		print('invalid command')
+
+GPIO.cleanup()
