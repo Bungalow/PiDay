@@ -14,12 +14,12 @@ def zero():
 
 def one():
 	GPIO.output(A, GPIO.LOW) # Turn off
-	GPIO.output(F, GPIO.HIGH) # Turn on
-	GPIO.output(E, GPIO.HIGH) # Turn on
+	GPIO.output(F, GPIO.LOW) # Turn off
+	GPIO.output(E, GPIO.LOW) # Turn off
 	GPIO.output(D, GPIO.LOW) # Turn off
-	GPIO.output(C, GPIO.LOW) # Turn off
-	GPIO.output(G, GPIO.LOW) # Turn off
-	GPIO.output(B, GPIO.LOW) # Turn on
+	GPIO.output(C, GPIO.HIGH) # Turn on
+	GPIO.output(G, GPIO.LOW) # Turn on
+	GPIO.output(B, GPIO.HIGH) # Turn off
 
 def two():
 	GPIO.output(A, GPIO.HIGH) # Turn on
